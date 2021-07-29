@@ -5,15 +5,15 @@ namespace SchoolPractice
 {
     public class Course
     {
-        private int CourseNo { get; set; }
-        private List<Student> Student = new List<Student>();
-        private Teacher cTeacher {get; set;}
+        public int CourseNo { get; set; }
+        public List<Student> Student = new List<Student>();
+        public Teacher CourseTeacher {get; set;}
 
-        public Course(int courseNo, List<Student> student, Teacher cTeacher)
+        public Course(int courseNo, List<Student> student, Teacher courseTeacher)
         {
             CourseNo = courseNo;
             Student = student;
-            this.cTeacher = cTeacher;
+            this.CourseTeacher = courseTeacher;
         }
 
     }
