@@ -10,6 +10,9 @@ namespace SchoolPractice
         public List<Student> enrolledStudents { get; set; }
 
 
+
+
+
         // TODO: Add your custom 'Equals' method here. Consider which fields should match in order to call two
         //  Course objects equal.
         public override bool Equals(object obj)
@@ -31,7 +34,7 @@ namespace SchoolPractice
 
         public override string ToString()
         {
-            return Topic + " (Instructor: " + Instructor + ", Students: " + enrolledStudents + ")";
+            return Topic + " (Instructor: " + Instructor.FirstName + Instructor.LastName + ")";
         }
 
     }
