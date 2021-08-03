@@ -28,14 +28,19 @@ namespace SchoolPractice
         }
 
         // TODO: Complete the AddGrade method.
-        public void AddGrade(int courseCredits, double grade)
+        public void AddGrade(int courseCredits, int grade)
         {
             // Update the appropriate properties: NumberOfCredits, Gpa
 
+            int qualityScore = grade * courseCredits;
 
+            int totalNumberOfCredits = NumberOfCredits + courseCredits;
 
+            double totalQualityScore = Gpa * totalNumberOfCredits;
 
+            totalQualityScore += qualityScore;
 
+            Gpa = totalQualityScore / totalNumberOfCredits;
 
 
         }
@@ -46,25 +51,53 @@ namespace SchoolPractice
             // Determine the grade level of the student based on NumberOfCredits
             if (NumberOfCredits < 29)
             {
-                return "Freshman")
+                //Console.WriteLine("Freshman");
+                return "Freshman";
             } else if (NumberOfCredits > 29 && NumberOfCredits < 59)
             {
+                //Console.WriteLine("Sophomore");
                 return "Sophomore";
             } else if (NumberOfCredits > 59 && NumberOfCredits < 89)
             {
+                //Console.WriteLine("Junior");
                 return "Junior";
             } else if (NumberOfCredits > 89) {
+                //Console.WriteLine("Senior");
                 return "Senior";
+            } else
+            {
+                return "invalid number";
             }
 
-            //return "grade level tbd";
+        
+        }
+        // TODO: Add your custom 'Equals' method here. Consider which fields should match in order to call two
+        //  Student objects equal.
+        public override bool Equals(object obj)
+        {
+            return obj is Student student &&
+                   Name == student.Name &&
+                   StudentId == student.StudentId;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, StudentId);
         }
 
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather
         //  than just the class fields.
+        public override string ToString()
+        {
+            return Name + " (Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
+        }
 
-        // TODO: Add your custom 'Equals' method here. Consider which fields should match in order to call two
-        //  Student objects equal.
+        
+
+       
+
+
+
 
     }
 }
